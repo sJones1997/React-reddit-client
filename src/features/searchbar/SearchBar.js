@@ -1,19 +1,29 @@
 import React, { useState } from 'react';
-
+import { useDispatch } from 'react-redux';
+import { getSearchResult } from './searchBarSlice';
+import './searchbar.css';
 
 export default function SearchBar() {
 
-    const [searchResult, setSearchResult] = useState("");
+    const dispatch = useDispatch();
+    const [searchTerm, setSearchTerm] = useState("");
 
-    const getSearchResult = (e) => {
-        console.log(searchResult)
-        setSearchResult(e.target.value)
+    const setSearchResult = (e) => {
+        
+        setSearchTerm(e.target.value);
+
+        const term = {
+            searchTerm: searchTerm
+        }
+
+        dispatch(getSearchResult(term))
+
     }
 
     return (
         <section>
             <div>
-                <input value={searchResult} onChange={getSearchResult}/>
+                <input placeholder="Search" value={searchTerm} onChange={setSearchResult}/>
             </div>
         </section>
     );

@@ -1,0 +1,28 @@
+.nav-bar {
+    height:3.5em;
+    width:100%;
+    box-shadow: 0px 2px 8px rgba(112, 112, 112, 0.25);   
+    display: flex; 
+    background-color:#fff;
+    justify-content: space-between;
+}
+
+.logo-container, .space-container {
+    flex: 1 !important;
+}
+
+.logo-container div {
+    height:100%;
+    width:100%;
+}
+
+.logo-container div img {
+    height: 75%;
+    padding: 1.75% 3%;
+    width:auto;
+}
+
+.search-bar-container {
+    flex: 3;
+    box-sizing: border-box;
+}

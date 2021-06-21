@@ -1,13 +1,15 @@
 import './App.css';
-import SearchBar from '../features/searchbar/SearchBar';
+import NavBar from '../components/navbar/NavBar';
 
 function App() {
   return (
     <div className="App">
-      <h1>Reddit client</h1>
-        <div>
-          <SearchBar/>
-        </div>
+      <header>
+        <NavBar />
+      </header>
+      <main>
+
+      </main>
     </div>
   );
 }
