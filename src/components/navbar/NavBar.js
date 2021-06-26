@@ -8,7 +8,7 @@ export default function NavBar(){
     return (
         <nav>
             <div className="nav-bar">
-                <div class="logo-container">
+                <div className="logo-container">
                     <div>   
                         <a href=""><img src={reddit}/></a>                        
                     </div>
