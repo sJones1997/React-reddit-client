@@ -1,0 +1,22 @@
+.inputContainer {
+    display:flex;
+    align-items: center;
+    width:50%;
+    margin: 0.5em auto;
+    height:2.5em;
+    position: relative;
+    border-radius: 0.5em;
+    border: 1px solid #edeff1;
+    background-color:#f6f7f8;    
+}
+
+input {
+    border:none;
+    background-color:transparent;
+    height:100%;
+    width:100%;
+}
+
+input:focus{
+    outline: none;
+}

@@ -1,13 +1,27 @@
 import './App.css';
-import SearchBar from '../features/searchbar/SearchBar';
+import NavBar from '../components/navbar/NavBar';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route
+} from "react-router-dom";
+import SearchFeed from '../features/searchFeed/searchFeed'
 
 function App() {
   return (
     <div className="App">
-      <h1>Reddit client</h1>
-        <div>
-          <SearchBar/>
-        </div>
+      <Router>      
+      <header>
+        <NavBar />
+      </header>
+      <main>
+
+        <Switch>
+          <Route path={`/search/:term`} component={SearchFeed} />
+        </Switch>
+
+      </main>
+      </Router>
     </div>
   );
 }
