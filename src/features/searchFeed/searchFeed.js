@@ -19,7 +19,7 @@ export default function SearchFeed(match){
             {loading === false ?
                 <div className="tileContainer">
                     {searchResult.map((e, i) => (
-                        <Tile key={i} data={e} />
+                        <Tile key={i} data={e.data} />
                     ))}
                 </div> :
                 <div className="loadingContainer">

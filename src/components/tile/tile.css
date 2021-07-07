@@ -1,0 +1,9 @@
+.tileContainer {
+    width: 75%;
+}
+
+.tile {
+    display:flex;
+    background-color:#fff;    
+    min-width: 100%;     
+}
