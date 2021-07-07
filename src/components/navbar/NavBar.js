@@ -1,5 +1,5 @@
 import './navbar.css';
-import SearchBar from '../../features/searchbar/SearchBar';
+import SearchBar from '../../features/searchBar/SearchBar';
 import reddit from '../../assets/reddit.png';
 
 export default function NavBar(){

@@ -15,7 +15,7 @@ export default function SearchBar() {
         } })    
 
     const handleKeyPress = (e) => {
-        if(e.which === 13 && searchTerm.length){;
+        if(e.which === 13 && searchTerm.length){
            history.push(`/search/${searchTerm}`)
         }
     }
