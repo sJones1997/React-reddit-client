@@ -5,7 +5,8 @@ import {
   Switch,
   Route
 } from "react-router-dom";
-import SearchFeed from '../features/searchFeed/searchFeed'
+import Search from '../features/search/search'
+import Home from '../features/home/Home';
 
 function App() {
   return (
@@ -17,7 +18,8 @@ function App() {
       <main>
 
         <Switch>
-          <Route path={`/search/:term`} component={SearchFeed} />
+          <Route exact path="/" component={Home} /> 
+          <Route path={`/search/:term`} component={Search} />
         </Switch>
 
       </main>
