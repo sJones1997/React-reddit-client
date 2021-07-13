@@ -1,19 +1,31 @@
 import { useEffect } from "react"
 import { useDispatch, useSelector } from "react-redux"
-import { fetchSearchResult, selectResults } from './searchFeedSlice';
+import { fetchSearchResult, selectResults, isLoading } from './searchFeedSlice';
+import { Tile } from '../../components/tile/Tile';
+import './searchFeed.css';
+
 export default function SearchFeed(match){
     
     const dispatch = useDispatch();
-
-    const result = useSelector(selectResults)
+    let searchResult = useSelector(selectResults)
+    let loading = useSelector(isLoading);
 
     useEffect(() => {
         dispatch(fetchSearchResult(match.match.params))
-    }, [])
+    }, [match, dispatch])
 
     return (
-        <div>
-            {result.map(e => (console.log(e.data)))}
+        <div className="searchResultsContainer">
+            {loading === false ?
+                <div className="tileContainer">
+                    {searchResult.map((e, i) => (
+                        <Tile key={i} data={e.data} />
+                    ))}
+                </div> :
+                <div className="loadingContainer">
+                    <h2>Loading results...</h2>
+                </div>
+            }
         </div>
     )
 }

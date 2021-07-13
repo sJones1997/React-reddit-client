@@ -1,0 +1,50 @@
+.tileContainer {
+    min-width: 60%;
+}
+
+.tile {
+    display:flex;
+    background-color:#fff;       
+    margin: 20px auto; 
+    padding-left:0;
+    box-sizing: border-box;
+    box-shadow: 0 0 3px rgba(33,33,33,0.5); 
+    border-radius: 5px;
+    width:100%;
+}
+
+.voteContainer {
+    min-width:40px;
+    background-color:#f8f9fa;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    text-align: center;
+}
+
+.postPreview {
+    margin-left:20px;
+    padding: 10px 40px 10px 0px
+}
+
+.postHeader {
+    display:flex;
+}
+
+.postHeader p {
+    margin-right:10px;
+    margin: 5px 5px 5px 0;
+}
+
+.postBody, .imagePreivew {
+    max-width:100%;    
+}
+
+.postBody h3 {
+    margin: 5px 0 15px 0;
+}
+
+.imagePreivew img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}

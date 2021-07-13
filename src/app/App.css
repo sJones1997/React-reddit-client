@@ -1,4 +1,8 @@
 .App {
-    height: 100vh;
+    height: auto;
     background-color:#DAE0E6;
+}
+
+body {
+    background-color:#dae0e6;
 }
