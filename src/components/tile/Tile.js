@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import './tile.css'
 
 export function Tile({ data }){
@@ -8,17 +9,52 @@ export function Tile({ data }){
         return imageUrl;
     }
 
+    const formatUpVotes = (ups, downs) => {
+        let votes = ups - downs;
+        let votesDigits = votes.toString();
+        if(votesDigits.length >= 4){
+            let votesSplit = votesDigits.split("")
+            let displayFigure;
+            let suffix;
+            switch(votesDigits.length){
+                case 4: 
+                    displayFigure = votesSplit.slice(0,2);
+                    displayFigure.splice(1,0,'.');
+                    suffix = "k";
+
+                break;
+                case 5:
+                    displayFigure = votesSplit.slice(0,3);
+                    displayFigure.splice(2,0,'.')    
+                    suffix = "k";                
+                break;
+                case 6:
+                    displayFigure = votesSplit.slice(0,2);
+                    displayFigure.splice(1,0,'.')
+                    suffix = "m"
+                break;
+                default:
+            }
+
+            return displayFigure.join("")+suffix;
+          
+        }
+        return votes;
+    }
+
     return (
         <div>
             <div className="tileContainer">
                 <div className="tile">
                     <div className="voteContainer">
-                        &nbsp;
+                        <h5>{formatUpVotes(data['ups'], data['downs'])}</h5>
                     </div>
                     <div className="postPreview">
                         {console.log(data)}
                         <div className="postHeader">
-                            <p>{data['subreddit_name_prefixed']}</p>
+                            <p><Link to={`/r/${data['subreddit']}`}>
+                            {data['subreddit_name_prefixed']}
+                            </Link></p>
                             <p>|</p>
                             <p>Posted by u/{data['author']}</p>
                         </div>
