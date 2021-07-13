@@ -1,10 +1,10 @@
 import { configureStore, applyMiddleware } from "@reduxjs/toolkit";
 import searchBarReducer from '../features/searchBar/searchBarSlice';
-import searchFeedReducer from '../features/searchFeed/searchFeedSlice';
+import FeedReducer from '../components/feed/FeedSlice';
 
 export default configureStore({
     reducer: {
         searchBar: searchBarReducer,
-        searchFeed: searchFeedReducer
+        feedSlice: FeedReducer
     }
   }, applyMiddleware);

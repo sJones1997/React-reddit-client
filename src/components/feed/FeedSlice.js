@@ -3,7 +3,9 @@ import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 export const fetchSearchResult = createAsyncThunk(
     "searchFeed/setSearchResults",
     async (term) => {
-        let searchTerm = term.term
+        console.log(term)
+        let searchTerm = term.searchTerm.term
+        console.log(searchTerm)
         if(searchTerm.length){
             const searchTermSplit = searchTerm.split(" ");
             let baseurl = 'https://www.reddit.com/';
@@ -38,8 +40,8 @@ export const fetchSearchResult = createAsyncThunk(
 )
 
 
-const searchFeedSlice = createSlice({
-    name: 'searchFeed',
+const feedSlice = createSlice({
+    name: 'Feed',
     initialState: {
         searchResults: [],
         isLoading: false,
@@ -66,7 +68,7 @@ const searchFeedSlice = createSlice({
 });
 
 
-export const isLoading = (state) => state.searchFeed.isLoading;
-export const selectResults = (state) => state.searchFeed.searchResults;
+export const isLoading = (state) =>  state.feedSlice.isLoading;
+export const selectResults = (state) => state.feedSlice.searchResults;
 
-export default searchFeedSlice.reducer;
+export default feedSlice.reducer;
