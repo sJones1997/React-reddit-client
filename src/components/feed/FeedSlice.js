@@ -1,14 +1,12 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+import {baseUrl} from '../../app/App';
 
 export const fetchSearchResult = createAsyncThunk(
-    "searchFeed/setSearchResults",
+    "Feed/setSearchResults",
     async (term) => {
-        console.log(term)
         let searchTerm = term.searchTerm.term
-        console.log(searchTerm)
         if(searchTerm.length){
             const searchTermSplit = searchTerm.split(" ");
-            let baseurl = 'https://www.reddit.com/';
             let queryParams;
 
             if(searchTermSplit.length === 1){
@@ -25,7 +23,7 @@ export const fetchSearchResult = createAsyncThunk(
 
             }
 
-            const data = await fetch(baseurl + queryParams, {
+            const data = await fetch(baseUrl + queryParams, {
                 method: 'GET',
                 headers: {
                     'Accept': 'application/json'
@@ -56,9 +54,16 @@ const feedSlice = createSlice({
         },
         [fetchSearchResult.fulfilled]: (state,action) => {
             const {data} = action.payload;
-            state.searchResults = data.children;     
-            state.isLoading = false;
-            state.hasError = false;
+            if(data) {
+                state.searchResults = data.children;     
+                state.isLoading = false;
+                state.hasError = false;
+            } else {
+                state.searchResults = [];     
+                state.isLoading = false;
+                state.hasError = true;                
+            }
+
         },
         [fetchSearchResult.rejected]: (state, action) => {
             state.isLoading = false;
@@ -70,5 +75,6 @@ const feedSlice = createSlice({
 
 export const isLoading = (state) =>  state.feedSlice.isLoading;
 export const selectResults = (state) => state.feedSlice.searchResults;
+export const hasError = (state) => state.feedSlice.hasError;
 
 export default feedSlice.reducer;
