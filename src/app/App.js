@@ -7,6 +7,7 @@ import {
 } from "react-router-dom";
 import Search from '../features/search/search'
 import Home from '../features/home/Home';
+import FullPost from '../features/fullPost/FullPost';
 
 export const baseUrl = 'https://www.reddit.com/';
 
@@ -22,7 +23,8 @@ function App() {
 
         <Switch>
           <Route exact path="/" component={Home} /> 
-          <Route path={`/search/:term`} component={Search} />
+          <Route exact path={`/search/:term`} component={Search} />
+          <Route exact path={`/r/:subreddit/comments/:id`} component={FullPost} />
         </Switch>
 
       </main>
