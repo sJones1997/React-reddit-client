@@ -1,7 +1,19 @@
+import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import './tile.css'
+import { useEffect } from 'react';
+import { fetchPostComments, isLoading, selectComments } from './tileSlice';
 
 export function Tile({ data }){
+
+    const dispatch = useDispatch();
+
+    const comments = useSelector(selectComments)
+    const loading = useSelector(isLoading)
+
+    useEffect(() => {
+        dispatch(fetchPostComments({id: data.id, subreddit:data.subreddit}))
+    },[dispatch, data])
 
     const fixImageEncoding = (imageUrl) => {
         let imageUrlSplit = imageUrl.split("&amp;")
@@ -50,7 +62,6 @@ export function Tile({ data }){
                         <h5>{formatUpVotes(data['ups'], data['downs'])}</h5>
                     </div>
                     <div className="postPreview">
-                        {console.log(data)}
                         <div className="postHeader">
                             <p><Link to={`/r/${data['subreddit']}`}>
                             {data['subreddit_name_prefixed']}
@@ -65,8 +76,11 @@ export function Tile({ data }){
                                 <img src={fixImageEncoding(data['preview']['images'][0]['source']['url'])} /> :
                                 ''}                   
                             </div>                              
-                        </div>                                               
-                    </div>                    
+                        </div>  
+                        <div className="commentContainer">   
+                            {comments[data['id']] ? comments[data['id']].length : "..."}
+                        </div>                                                                       
+                    </div>                  
                 </div>
             </div>
         </div>

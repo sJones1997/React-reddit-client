@@ -8,7 +8,10 @@ import {
 import Search from '../features/search/search'
 import Home from '../features/home/Home';
 
+export const baseUrl = 'https://www.reddit.com/';
+
 function App() {
+
   return (
     <div className="App">
       <Router>      
