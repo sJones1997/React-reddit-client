@@ -17,21 +17,29 @@ export default function Feed(searchTerm){
         dispatch(fetchSearchResult({searchTerm}))
     }, [searchTerm, dispatch])
 
+    let content;
+
+    if(loading){
+
+        content = <h2>Loading results...</h2>
+
+    } else if(searchResult.length){
+
+        content = <div className="tileContainer">
+        {searchResult.map((e, i) => (
+            <Tile key={i} data={e.data} />
+        )) }           
+        </div>
+
+    } else if (errored || searchResult.length){
+
+        content = <h2>Noting to see here, try something else!</h2> 
+
+    }
 
     return (
-        <div>
-            {loading === false || errored !== false ?
-                <div className="tileContainer">
-                    {searchResult.map((e, i) => (
-                        <Tile key={i} data={e.data} />
-                    ))}
-                </div> :
-                <div className="loadingContainer">
-                    {console.log(loading, errored)}
-                    {loading === true ? <h2>Loading results...</h2> : ''}
-                    {errored === true ? <h2>Oops, try something else!</h2> : ''}
-                </div>
-            }
+        <div className="feedContainer">
+            {content}
         </div>
     )
 }
