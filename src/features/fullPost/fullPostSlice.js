@@ -1,5 +1,4 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
-import { findAllByTestId } from '@testing-library/dom';
 import {baseUrl} from '../../app/App';
 
 export const fetchFullPost = createAsyncThunk(
