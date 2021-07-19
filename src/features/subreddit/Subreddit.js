@@ -18,7 +18,7 @@ export default function Subreddit(match){
 
 
     return (
-        <div>
+        <div className="subredditContainer">
             {!loading && !errored ?  
             <div className="subredditPostContainer">
             { subPosts.map((e,i) => (
@@ -26,7 +26,7 @@ export default function Subreddit(match){
             ))}                
             </div>
             : 
-            <h1>Test</h1>}
+            <h1>Loading...</h1>}
         </div>
     )
 }
