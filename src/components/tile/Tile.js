@@ -28,8 +28,7 @@ export function Tile({ data }){
         }
     }
 
-    const formatUpVotes = (ups, downs) => {
-        let votes = ups - downs;
+    const formatUpVotes = (votes) => {
         let votesDigits = votes.toString();
         if(votesDigits.length >= 4){
             let votesSplit = votesDigits.split("")
@@ -67,7 +66,7 @@ export function Tile({ data }){
                 <Link className="postTitle" to={`/r/${data['subreddit']}/comments/${data['id']}`}>
                     <div className="tile">
                         <div className="voteContainer">
-                            <h5>{formatUpVotes(data['ups'], data['downs'])}</h5>
+                            <h5>{formatUpVotes(data['score'])}</h5>
                         </div>
                         <div className="postPreview">
                             <div className="postHeader">
@@ -85,7 +84,7 @@ export function Tile({ data }){
                                 </div>                              
                             </div>  
                             <div className="commentContainer">   
-                                {comments[data['id']] ? comments[data['id']].length : "..."}
+                                {data['num_comments']}
                             </div>                                                                       
                         </div>                  
                     </div>
