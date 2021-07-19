@@ -37,7 +37,6 @@ const fullPostSlice = createSlice({
             if(action.payload.length === 2){
                 state.hasError = false
                 state.isLoading = false;
-                console.log(typeof(action.payload[1].data.children))
                 state.post = action.payload[0].data.children
                 state.comments = action.payload[1].data.children
             } else {

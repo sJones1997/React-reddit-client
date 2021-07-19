@@ -16,17 +16,30 @@ export default function Subreddit(match){
         dispatch(fetchSubreddit(param));
     }, [dispatch,match])
 
+    let content;
+
+    if(loading){
+
+        content = <h2>Loading results...</h2>
+
+    } else if(subPosts.length){
+
+        content = <div className="subredditPostContainer">
+        {subPosts.map((e,i) => (
+            <Tile key={i} data={e.data} />
+        ))}                
+        </div>
+
+    } else if (errored || !subPosts.length){
+
+        content = <h2>Noting to see here, try something else!</h2> 
+
+    }    
+
 
     return (
         <div className="subredditContainer">
-            {!loading && !errored ?  
-            <div className="subredditPostContainer">
-            { subPosts.map((e,i) => (
-                <Tile key={i} data={e.data} />
-            ))}                
-            </div>
-            : 
-            <h1>Loading...</h1>}
+            {content}
         </div>
     )
 }

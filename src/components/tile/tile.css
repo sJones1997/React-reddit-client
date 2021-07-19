@@ -65,6 +65,30 @@
     color:#333;
 }
 
-.subredditLink:hover {
+.subredditLink:hover, .postTitle:hover {
     text-decoration: underline;
+    cursor: pointer;
+}
+
+.commentContainer {
+    height: auto;
+}
+
+.commentContainer div {
+    width:auto;
+    display:inline-flex;
+    align-items: center;
+}
+
+.commentContainer div p {
+    margin:0;
+    padding:10px 0;
+}
+
+.commentContainer div:hover {
+    background-color:rgba(66,66,66,0.25);
+}
+
+.fullBodyPost .tileContainer .tile .postTitle {
+    background-color: red !important;
 }

@@ -30,7 +30,6 @@ export default function SearchBar() {
                 <div className="iconContainer">
                     <Link to={`/search/${searchTerm}`}>
                         <FontAwesome
-                            className="super-crazy-colors"
                             name="search"
                             style={{ textShadow: '0 1px 0 rgba(0, 0, 0, 0.1)', fontSize:'1.25em', padding: '0 10px', color:'#878a8c' }}
                         />                    

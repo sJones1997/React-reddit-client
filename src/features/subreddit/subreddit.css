@@ -1,8 +1,8 @@
-.subredditPostContainer {
+.subredditContainer {
     width:60%;
     margin: 0 auto;    
 }
 
-.subredditContainer h1 {
+.subredditContainer h2 {
     text-align: center;
 }
