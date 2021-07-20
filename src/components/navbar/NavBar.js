@@ -2,7 +2,6 @@ import './navbar.css';
 import SearchBar from '../searchBar/SearchBar';
 import reddit from '../../assets/reddit.png';
 import { Link } from 'react-router-dom';
-import Home from '../../features/home/Home'
 
 export default function NavBar(){
 
@@ -12,7 +11,7 @@ export default function NavBar(){
                 <div className="logo-container">
                     <div>   
                         <Link to='/'>
-                            <img src={reddit} />
+                            <img src={reddit} alt="reddit logo" />
                         </Link>                        
                     </div>
                 </div>

@@ -65,7 +65,7 @@ export function Tile({ data }){
     return (
         <div>
             <div className="tileContainer">
-                
+                    {console.log(data)}
                     <div className="tile">
                         <div className="voteContainer">
                             <h5>{formatUpVotes(data['score'])}</h5>
@@ -82,7 +82,7 @@ export function Tile({ data }){
                                     <h3>{data['title']}</h3>            
                                     <div className="imagePreivew">
                                         {data['preview'] ? 
-                                        <img src={fixImageEncoding(data['preview']['images'][0]['source']['url'])} /> :
+                                        <img src={fixImageEncoding(data['preview']['images'][0]['source']['url'])} alt={data['preview']['images']['id']} /> :
                                         ''}                   
                                     </div>                              
                                 </div>  

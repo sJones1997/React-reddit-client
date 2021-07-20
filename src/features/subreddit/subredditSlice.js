@@ -36,7 +36,6 @@ const subredditSlice = createSlice({
         [fetchSubreddit.fulfilled]: (state,action) => {
             state.hasError = false;
             state.isLoading = false;
-            console.log(action.payload.data.children)
             state.posts = action.payload.data.children
         },
         [fetchSubreddit.rejected]: (state, action) => {

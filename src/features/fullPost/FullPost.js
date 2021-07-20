@@ -48,7 +48,8 @@ export default function FullPost(match){
                                             <p className="replyScore">Upvotes: {e.data.score}</p>
                                         </div>
                                     )
-                                }
+                                } 
+                                return '';
                             })
                             :
                             ''}
