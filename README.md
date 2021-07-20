@@ -14,6 +14,12 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 The page will reload if you make edits.\
 You will also see any lint errors in the console.
 
+### `routes`
+- `/` - home page, populated with the most popular posts of the day
+- `/search/:term%20:term` - search different topics, use %20 to chain multiple topics
+- `/r/:subreddit` - used for a specifc subreddit, if it exists
+- `/r/:subreddit/comments/:postId` - can see a post and it's post popular comments
+
 ### `npm test`
 
 Launches the test runner in the interactive watch mode.\
