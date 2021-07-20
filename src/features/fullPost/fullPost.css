@@ -1,0 +1,50 @@
+.fullPostContainer {
+    width:80%;
+    margin: 0 auto;
+}
+.fullPostContainer h2 {
+    text-align: center;
+}
+
+.commentBody {
+    width:60%;
+    margin: 0 auto;
+    background-color:#fff;
+    padding: 10px;
+    box-sizing: border-box;
+    border-radius: 5px;
+    box-shadow: 0 0 3px rgba(33,33,33,0.5);     
+    padding-left: 50px;
+}
+
+.commentReply {
+    padding: 2px 0;
+}
+
+.replyAuthor {
+    margin: 12px 0 0 0;
+}
+
+.replyBody {
+    margin: 6px 0;
+}
+
+.replyScore {
+    margin: 0 0 12px 0;    
+}
+
+.replyAuthor, .replyScore {
+    font-size: 0.8em;
+}
+
+@media screen and (max-device-width: 480px), screen and (max-width: 480px) {
+
+    .fullPostContainer,.commentBody {
+        width:100%;
+    }   
+
+    .commentBody{
+        border-radius: 0;        
+    }
+
+}

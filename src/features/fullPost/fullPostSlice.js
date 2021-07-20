@@ -38,7 +38,7 @@ const fullPostSlice = createSlice({
                 state.hasError = false
                 state.isLoading = false;
                 state.post = action.payload[0].data.children
-                state.comment = action.payload[1].data.children
+                state.comments = action.payload[1].data.children
             } else {
                 state.hasError = true
             }

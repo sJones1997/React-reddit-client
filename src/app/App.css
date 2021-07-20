@@ -1,3 +1,8 @@
+html, body {
+    overflow-x: hidden;    
+}
+
+
 .App {
     height: auto;
     background-color:#DAE0E6;

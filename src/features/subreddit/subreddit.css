@@ -1,8 +1,15 @@
-.subredditPostContainer {
+.subredditContainer {
     width:60%;
     margin: 0 auto;    
 }
 
-.subredditContainer h1 {
+.subredditContainer h2 {
     text-align: center;
+}
+
+
+@media screen and (max-device-width: 480px), screen and (max-width: 480px) {
+    .subredditContainer {
+        width:100%;
+    }    
 }

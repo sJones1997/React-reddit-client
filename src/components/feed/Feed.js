@@ -31,7 +31,7 @@ export default function Feed(searchTerm){
         )) }           
         </div>
 
-    } else if (errored || searchResult.length){
+    } else if (errored || !searchResult.length){
 
         content = <h2>Noting to see here, try something else!</h2> 
 

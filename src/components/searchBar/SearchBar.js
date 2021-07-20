@@ -27,10 +27,9 @@ export default function SearchBar() {
     return (
         <section>
             <div className="inputContainer">
-                <div className="iconContainer">
+                <div className="iconContainer" style={!searchTerm.length ? {"pointerEvents": "none"} : null }>
                     <Link to={`/search/${searchTerm}`}>
                         <FontAwesome
-                            className="super-crazy-colors"
                             name="search"
                             style={{ textShadow: '0 1px 0 rgba(0, 0, 0, 0.1)', fontSize:'1.25em', padding: '0 10px', color:'#878a8c' }}
                         />                    

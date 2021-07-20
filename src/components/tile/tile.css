@@ -39,6 +39,7 @@
 .postHeader p {
     margin-right:10px;
     margin: 5px 5px 5px 0;
+    font-size: 0.8em;;
 }
 
 .postBody, .imagePreivew {
@@ -65,6 +66,34 @@
     color:#333;
 }
 
-.subredditLink:hover {
+.subredditLink:hover, .postTitle:hover {
     text-decoration: underline;
+    cursor: pointer;
+}
+
+.commentContainer {
+    height: auto;
+}
+
+.commentContainer div {
+    width:auto;
+    display:inline-flex;
+    align-items: center;
+}
+
+.commentContainer div p {
+    margin:0;
+    padding:10px 0;
+}
+
+@media screen and (max-device-width: 480px), screen and (max-width: 480px) {
+
+    .tileContainer {
+        min-width: 100%;
+    }
+
+    .tile {
+        border-radius:0;
+    }
+
 }
