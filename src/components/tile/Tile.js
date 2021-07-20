@@ -65,7 +65,6 @@ export function Tile({ data }){
     return (
         <div>
             <div className="tileContainer">
-                    {console.log(data)}
                     <div className="tile">
                         <div className="voteContainer">
                             <h5>{formatUpVotes(data['score'])}</h5>
