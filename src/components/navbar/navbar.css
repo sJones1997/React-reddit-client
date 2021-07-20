@@ -26,3 +26,27 @@
     flex: 3;
     box-sizing: border-box;
 }
+
+@media screen and (max-device-width: 480px), screen and (max-width: 480px) {
+    .nav-bar {
+        flex-direction: column;
+        height: auto;
+        align-items: center;
+    }
+
+    .logo-container div {
+        text-align: center;
+    }
+
+    .logo-container div img {
+        width: 60% !important;
+        padding: 10px 5px 5px 0px;
+        height: auto;
+        margin: 0 auto;
+    }
+
+    .search-bar-container {
+        width: 100%;
+    }
+
+}

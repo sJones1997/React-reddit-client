@@ -35,17 +35,17 @@ export default function FullPost(match){
                 <div className="commentBody">
                     {allComments.map((e,it) => (
                         <div key={`commentContainer_${it}`} className="commentsContainer">
-                            <p>{e.data.author}</p>
-                            <p >{e.data.body}</p>
-                            <p>{e.data.score}</p>
+                            <p className="replyAuthor" >Author: {e.data.author}</p>
+                            <p className="replyBody">{e.data.body}</p>
+                            <p className="replyScore">Upvotes: {e.data.score}</p>
                             {e.data.replies ? 
                             e.data.replies.data.children.map((e,i) => {
                                 if(e.kind === 't1'){
                                     return (
                                         <div key={`commentContainer_${it}_comment_${i}`} className="commentReply" style={{'paddingLeft': 10 * (i + 1), 'borderLeft': '1px solid rgba(33,33,33,0.25)', 'marginLeft': 10 * i}} >
-                                            <p>{e.data.author}</p>
-                                            <p>{e.data.body}</p>
-                                            <p>{e.data.score}</p>
+                                            <p className="replyAuthor">Author: {e.data.author}</p>
+                                            <p className="replyBody">{e.data.body}</p>
+                                            <p className="replyScore">Upvotes: {e.data.score}</p>
                                         </div>
                                     )
                                 }

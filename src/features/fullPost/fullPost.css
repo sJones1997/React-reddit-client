@@ -20,3 +20,31 @@
 .commentReply {
     padding: 2px 0;
 }
+
+.replyAuthor {
+    margin: 12px 0 0 0;
+}
+
+.replyBody {
+    margin: 6px 0;
+}
+
+.replyScore {
+    margin: 0 0 12px 0;    
+}
+
+.replyAuthor, .replyScore {
+    font-size: 0.8em;
+}
+
+@media screen and (max-device-width: 480px), screen and (max-width: 480px) {
+
+    .fullPostContainer,.commentBody {
+        width:100%;
+    }   
+
+    .commentBody{
+        border-radius: 0;        
+    }
+
+}

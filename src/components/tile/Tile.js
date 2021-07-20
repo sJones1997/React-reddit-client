@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { Link, useHistory} from 'react-router-dom';
 import './tile.css'
 var FontAwesome = require('react-fontawesome')
@@ -6,12 +6,13 @@ var FontAwesome = require('react-fontawesome')
 export function Tile({ data }){
 
     const history = useHistory();  
-    let commentPage = false;  
+    const [commentPage, toggleCommentPage] = useState(false)
+
 
     useEffect(() => {
         let url = window.location.href
         if(url.includes("comments") & url.includes('r')){
-            commentPage = true;
+            toggleCommentPage(true);
         }
     },[])
 
@@ -22,10 +23,7 @@ export function Tile({ data }){
     }
 
     const renderSubredditLink = (subreddit, isCommentPage) => {
-        console.log(isCommentPage)
-        if(subreddit && !isCommentPage){
-            history.push(`/r/${subreddit}`)            
-        }
+        history.push(`/r/${subreddit}`)            
     }
 
     const formatUpVotes = (votes) => {
@@ -47,10 +45,14 @@ export function Tile({ data }){
                     suffix = "k";                
                 break;
                 case 6:
-                    displayFigure = votesSplit.slice(0,2);
-                    displayFigure.splice(1,0,'.')
-                    suffix = "m"
+                    displayFigure = votesSplit.slice(0,3);
+                    suffix = "k"
                 break;
+                case 7:
+                    displayFigure = votesSplit.slice(0,2);
+                    displayFigure.splice(2,0,'.')                      
+                    suffix = "k"
+                break;                
                 default:
             }
 
@@ -74,24 +76,26 @@ export function Tile({ data }){
                                 <p>|</p>
                                 <p>Posted by u/{data['author']}</p>
                             </div>
-                            <Link className="postTitle" to={`/r/${data['subreddit']}/comments/${data['id']}`}>                            
-                            <div className="postBody">
-                                <h3>{data['title']}</h3>            
-                                <div className="imagePreivew">
-                                    {data['preview'] ? 
-                                    <img src={fixImageEncoding(data['preview']['images'][0]['source']['url'])} /> :
-                                    ''}                   
-                                </div>                              
-                            </div>  
-                            <div className="commentContainer">   
-                                <div>
-                                    <FontAwesome
-                                    name="comment"
-                                    style={{ textShadow: '0 1px 0 rgba(0, 0, 0, 0.1)', fontSize:'1.25em', paddingRight: '10px', color:'#878a8c' }}/>                                   
-                                    <p>{data['num_comments']}</p>                                  
-                                </div>
-                            </div> 
-                            </Link>                                                                                     
+                            <div style={commentPage ? {'pointerEvents': "none"} : null}>
+                                <Link className="postTitle" to={`/r/${data['subreddit']}/comments/${data['id']}`}>                            
+                                <div className="postBody">
+                                    <h3>{data['title']}</h3>            
+                                    <div className="imagePreivew">
+                                        {data['preview'] ? 
+                                        <img src={fixImageEncoding(data['preview']['images'][0]['source']['url'])} /> :
+                                        ''}                   
+                                    </div>                              
+                                </div>  
+                                <div className="commentContainer">   
+                                    <div>
+                                        <FontAwesome
+                                        name="comment"
+                                        style={{ textShadow: '0 1px 0 rgba(0, 0, 0, 0.1)', fontSize:'1.25em', paddingRight: '10px', color:'#878a8c' }}/>                                   
+                                        <p>{data['num_comments']}</p>                                  
+                                    </div>
+                                </div> 
+                                </Link> 
+                            </div>                                                                                    
                         </div>                  
                     </div>              
             </div>

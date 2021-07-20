@@ -39,6 +39,7 @@
 .postHeader p {
     margin-right:10px;
     margin: 5px 5px 5px 0;
+    font-size: 0.8em;;
 }
 
 .postBody, .imagePreivew {
@@ -85,10 +86,14 @@
     padding:10px 0;
 }
 
-.commentContainer div:hover {
-    background-color:rgba(66,66,66,0.25);
-}
+@media screen and (max-device-width: 480px), screen and (max-width: 480px) {
 
-.fullBodyPost .tileContainer .tile .postTitle {
-    background-color: red !important;
+    .tileContainer {
+        min-width: 100%;
+    }
+
+    .tile {
+        border-radius:0;
+    }
+
 }

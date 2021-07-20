@@ -27,7 +27,7 @@ export default function SearchBar() {
     return (
         <section>
             <div className="inputContainer">
-                <div className="iconContainer">
+                <div className="iconContainer" style={!searchTerm.length ? {"pointerEvents": "none"} : null }>
                     <Link to={`/search/${searchTerm}`}>
                         <FontAwesome
                             name="search"
