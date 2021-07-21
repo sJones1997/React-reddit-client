@@ -86,6 +86,12 @@
     padding:10px 0;
 }
 
+@media screen and (max-device-width: 770px), screen and (max-width: 770px) {
+    .tileContainer {
+        min-width: 90%;
+    }    
+}
+
 @media screen and (max-device-width: 480px), screen and (max-width: 480px) {
 
     .tileContainer {
