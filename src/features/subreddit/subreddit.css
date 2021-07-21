@@ -7,6 +7,11 @@
     text-align: center;
 }
 
+@media screen and (max-device-width: 960px), screen and (max-width: 960px) {
+    .subredditContainer {
+        min-width: 90%;
+    }    
+}
 
 @media screen and (max-device-width: 480px), screen and (max-width: 480px) {
     .subredditContainer {
