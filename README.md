@@ -16,7 +16,7 @@ You will also see any lint errors in the console.
 
 ### `routes`
 - `/` - home page, populated with the most popular posts of the day
-- `/search/:term%20:term` - search different topics, use %20 to chain multiple topics
+- `/search/:term%20:term` - search different topics, use %20 to chain multiple terms
 - `/r/:subreddit` - used for a specifc subreddit, if it exists
 - `/r/:subreddit/comments/:postId` - can see a post and it's post popular comments
 
