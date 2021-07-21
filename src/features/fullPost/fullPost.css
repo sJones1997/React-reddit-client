@@ -1,5 +1,5 @@
 .fullPostContainer {
-    width:80%;
+    width:90%;
     margin: 0 auto;
 }
 .fullPostContainer h2 {
@@ -27,6 +27,8 @@
 
 .replyBody {
     margin: 6px 0;
+    width:fit-content;
+    block-size: fit-content
 }
 
 .replyScore {
