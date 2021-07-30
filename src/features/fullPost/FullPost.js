@@ -18,6 +18,12 @@ export default function FullPost(match){
         dispatch(fetchFullPost({id:id, subreddit:subreddit}))   
     }, [dispatch, match])
 
+    const htmlTagEncoding = (comment) => {
+        let div = document.createElement('div')
+        div.innerHTML = comment;
+        return div.childNodes.length === 0 ? "" : {__html : div.childNodes[0].nodeValue};
+    }
+
 
     let content;
 
@@ -36,7 +42,7 @@ export default function FullPost(match){
                     {allComments.map((e,it) => (
                         <div key={`commentContainer_${it}`} className="commentsContainer">
                             <p className="replyAuthor" >Author: {e.data.author}</p>
-                            <p className="replyBody">{e.data.body}</p>
+                            <div className="replyBody" dangerouslySetInnerHTML={e.data.distinguished === 'moderator' ? htmlTagEncoding(e.data.body_html) : htmlTagEncoding(e.data.body_html)} ></div>
                             <p className="replyScore">Upvotes: {e.data.score}</p>
                             {e.data.replies ? 
                             e.data.replies.data.children.map((e,i) => {
@@ -44,7 +50,7 @@ export default function FullPost(match){
                                     return (
                                         <div key={`commentContainer_${it}_comment_${i}`} className="commentReply" style={{'paddingLeft': 10 * (i + 1), 'borderLeft': '1px solid rgba(33,33,33,0.25)', 'marginLeft': 10 * i}} >
                                             <p className="replyAuthor">Author: {e.data.author}</p>
-                                            <p className="replyBody">{e.data.body}</p>
+                                            <div className="replyBody" dangerouslySetInnerHTML={e.data.distinguished === 'moderator' ? htmlTagEncoding(e.data.body_html) : htmlTagEncoding(e.data.body_html)} ></div>
                                             <p className="replyScore">Upvotes: {e.data.score}</p>
                                         </div>
                                     )
