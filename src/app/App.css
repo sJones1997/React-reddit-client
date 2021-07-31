@@ -11,3 +11,15 @@ html, body {
 body {
     background-color:#dae0e6;
 }
+
+.mainContainer {
+    padding-top:60px;
+}
+
+@media screen and (max-device-width: 480px), screen and (max-width: 480px) {
+
+    .mainContainer {
+        padding-top:120px;
+    }
+
+}

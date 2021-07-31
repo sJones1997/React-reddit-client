@@ -21,9 +21,8 @@ input:focus{
     outline: none;
 }
 
-
-@media screen and (max-device-width: 480px), screen and (max-width: 480px) {
+@media screen and (max-device-width: 960px), screen and (max-width: 960px) {
     .inputContainer {
         width:80%;
-    }
+    }    
 }
