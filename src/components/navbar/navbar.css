@@ -5,6 +5,8 @@
     display: flex; 
     background-color:#fff;
     justify-content: space-between;
+    position: fixed;
+    top: 0;
 }
 
 .logo-container, .space-container {

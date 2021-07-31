@@ -19,7 +19,7 @@ function App() {
       <header>
         <NavBar />
       </header>
-      <main>
+      <main className="mainContainer">
 
         <Switch>
           <Route exact path="/" component={Home} /> 
