@@ -2,6 +2,7 @@ import { useEffect } from "react"
 import { useDispatch, useSelector } from "react-redux";
 import { fetchFullPost, posts, comments, isLoading, hasError } from './fullPostSlice';
 import { Tile } from '../../components/tile/Tile';
+import Comments from '../../components/comments/Comments';
 import './fullPost.css';
 
 export default function FullPost(match){
@@ -18,49 +19,19 @@ export default function FullPost(match){
         dispatch(fetchFullPost({id:id, subreddit:subreddit}))   
     }, [dispatch, match])
 
-    const htmlTagEncoding = (comment) => {
-        let div = document.createElement('div')
-        div.innerHTML = comment;
-        return div.childNodes.length === 0 ? "" : {__html : div.childNodes[0].nodeValue};
-    }
-
-
     let content;
 
     if(loading){
 
         content = <h2>Loading results...</h2>
 
-    } else if(pagePost.length && allComments.length){
+    } else if(pagePost.length || allComments.length){
 
         content = (
         <div className="fullPostBody">
-            {pagePost.map((e,i) => (
-                <Tile key={i} data={e.data} />
-            ))}
+            {pagePost.length ? pagePost.map((e,i) => (<Tile key={i} data={e.data} />)) : <h1>Error showing post</h1>}
                 <div className="commentBody">
-                    {allComments.map((e,it) => (
-                        <div key={`commentContainer_${it}`} className="commentsContainer">
-                            <p className="replyAuthor" >Author: {e.data.author}</p>
-                            <div className="replyBody" dangerouslySetInnerHTML={e.data.distinguished === 'moderator' ? htmlTagEncoding(e.data.body_html) : htmlTagEncoding(e.data.body_html)} ></div>
-                            <p className="replyScore">Upvotes: {e.data.score}</p>
-                            {e.data.replies ? 
-                            e.data.replies.data.children.map((e,i) => {
-                                if(e.kind === 't1'){
-                                    return (
-                                        <div key={`commentContainer_${it}_comment_${i}`} className="commentReply" style={{'paddingLeft': 10 * (i + 1), 'borderLeft': '1px solid rgba(33,33,33,0.25)', 'marginLeft': 10 * i}} >
-                                            <p className="replyAuthor">Author: {e.data.author}</p>
-                                            <div className="replyBody" dangerouslySetInnerHTML={e.data.distinguished === 'moderator' ? htmlTagEncoding(e.data.body_html) : htmlTagEncoding(e.data.body_html)} ></div>
-                                            <p className="replyScore">Upvotes: {e.data.score}</p>
-                                        </div>
-                                    )
-                                } 
-                                return '';
-                            })
-                            :
-                            ''}
-                        </div>
-                    ))}  
+                    {allComments.length ? allComments.map((e, i) => (<Comments key={`commentContainer_${i}`} data={e.data} />)) : <h3 style={{'textAlign': 'center'}}>No comments to show</h3> }
                 </div>              
         </div>            
         )

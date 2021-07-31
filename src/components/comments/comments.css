@@ -1,0 +1,23 @@
+
+
+.commentReply {
+    padding: 2px 0;
+}
+
+.replyAuthor {
+    margin: 12px 0 0 0;
+}
+
+.replyBody {
+    margin: 6px 0;
+    width:fit-content;
+    block-size: fit-content
+}
+
+.replyScore {
+    margin: 0 0 12px 0;    
+}
+
+.replyAuthor, .replyScore {
+    font-size: 0.8em;
+}
