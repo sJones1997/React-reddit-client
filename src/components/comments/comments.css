@@ -1,4 +1,7 @@
 
+.commentsContainer {
+    margin: 20px 0;
+}
 
 .commentReply {
     padding: 2px 0;
@@ -9,7 +12,7 @@
 }
 
 .replyBody {
-    margin: 6px 0;
+    margin: 6px 10px;
     width:fit-content;
     block-size: fit-content
 }

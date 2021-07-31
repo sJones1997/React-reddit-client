@@ -9,7 +9,7 @@
     top: 0;
 }
 
-.logo-container, .space-container {
+.logo-container, .return-container {
     flex: 1 !important;
 }
 
@@ -29,9 +29,15 @@
     box-sizing: border-box;
 }
 
+.return-container {
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+
 @media screen and (max-device-width: 480px), screen and (max-width: 480px) {
     .nav-bar {
-        flex-direction: column;
+        flex-wrap: wrap;
         height: auto;
         align-items: center;
     }
@@ -48,7 +54,12 @@
     }
 
     .search-bar-container {
-        width: 100%;
+        flex-basis: 100%;
+        order:3
     }
+
+    .logo-container, .return-container {
+        flex-basis:50%;
+    }   
 
 }
