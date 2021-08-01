@@ -9,12 +9,6 @@
 .commentBody {
     width:60%;
     margin: 0 auto;
-    background-color:#fff;
-    padding: 10px;
-    box-sizing: border-box;
-    border-radius: 5px;
-    box-shadow: 0 0 3px rgba(33,33,33,0.5);     
-    padding-left: 50px;
 }
 
 @media screen and (max-device-width: 960px), screen and (max-width: 960px) {

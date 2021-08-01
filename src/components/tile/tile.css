@@ -101,5 +101,8 @@
     .tile {
         border-radius:0;
     }
+    .postHeader p {
+        font-size: 0.7em;
+    }
 
 }
